@@ -17,10 +17,10 @@ const fetchSubstitute = {
           return new Promise(function(resolve, reject) {
               window[GLOBAL_NAME].kernel.invoke('sendRequest', params, function (data) {
                   if (data.status && data.result && parseInt(data.result.statusCode, 10) === 200) {
-                      console.log('fetch')
+                      console.log('fetch -> -----------------')
                       console.log(data.result.responseBody)
+                      console.log('fetch -> -----------------')
                       console.log(decodeURIComponent(data.result.responseBody))
-                      console.log('-----------------')
                       let r = decodeURIComponent(data.result.responseBody);
                       if (r.indexOf(boundary) === 0) {
                           r = r.split(boundary)[1]

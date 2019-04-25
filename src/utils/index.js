@@ -10,10 +10,10 @@ export const getPageData = () => {
         });
     }
     if (params.pageData) {
-        console.log('page-data')
+        console.log('utils -> page-data -----------------')
         console.log(params.pageData)
+        console.log('utils -> page-data -----------------')
         console.log(decodeURIComponent(params.pageData))
-        console.log('-----------------')
         params.pageData = decodeURIComponent(params.pageData);
         let innerP;
         try {
