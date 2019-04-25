@@ -62,8 +62,9 @@ const network = {
     /**
      * 原始请求，当get、post无法满足需求时请使用此请求；
      * @param {*} params 
+     * @param {source} 引用端来源
      */
-    sendRequest(params) {
+    sendRequest(params, source) {
         return ready().then(function() {
             return new Promise(function(resolve, reject) {
                 window[GLOBAL_NAME].kernel.invoke('sendRequest', params, function (data) {
@@ -72,9 +73,9 @@ const network = {
                         console.log('network ----------------')
                         // console.log(data.result.responseBody)
                         console.log('network ----------------')
-                        console.log(decodeURIComponent(data.result.responseBody))
 
-                        let r = decodeURIComponent(data.result.responseBody);
+                        // let r = decodeURIComponent(data.result.responseBody);
+                        let r = data.result.responseBody
                         if (r.indexOf(boundary) === 0) {
                             r = r.split(boundary)[1]
                         }
