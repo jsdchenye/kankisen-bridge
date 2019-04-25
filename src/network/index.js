@@ -70,8 +70,10 @@ const network = {
                     // console.log(data);
                     if (data.status && data.result && parseInt(data.result.statusCode, 10) === 200) {
                         console.log(data.result.responseBody)
-                        console.log('--')
+                        console.log('utils')
                         console.log(decodeURIComponent(data.result.responseBody))
+                        console.log('----------------')
+
                         let r = decodeURIComponent(data.result.responseBody);
                         if (r.indexOf(boundary) === 0) {
                             r = r.split(boundary)[1]
