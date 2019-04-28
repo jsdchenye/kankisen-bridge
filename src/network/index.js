@@ -70,12 +70,13 @@ const network = {
                 window[GLOBAL_NAME].kernel.invoke('sendRequest', params, function (data) {
                     // console.log(data);
                     if (data.status && data.result && parseInt(data.result.statusCode, 10) === 200) {
-                        console.log(data.result.responseBody)
-                        console.log(data.result.responseHeaders)
-                        console.log('headers')
-                        console.log(JSON.parse(data.result.responseHeaders))
+                        let reqHeaders = JSON.parse(data.result.responseHeaders)
                         // let r = decodeURIComponent(data.result.responseBody);
                         let r = data.result.responseBody
+                        r = Object.assign(r, {
+                            headers: reqHeaders
+                        })
+                        console.log(r)
                         if (r.indexOf(boundary) === 0) {
                             r = r.split(boundary)[1]
                         }
