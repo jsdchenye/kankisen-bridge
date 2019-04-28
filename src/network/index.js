@@ -73,10 +73,10 @@ const network = {
                         let reqHeaders = JSON.parse(data.result.responseHeaders)
                         // let r = decodeURIComponent(data.result.responseBody);
                         let r = data.result.responseBody
-                        r = Object.assign(r, {
-                            headers: reqHeaders
-                        })
-                        console.log(r)
+                        // r = Object.assign(r, {
+                        //     headers: reqHeaders
+                        // })
+                        r.headers = reqHeaders
                         if (r.indexOf(boundary) === 0) {
                             r = r.split(boundary)[1]
                         }
