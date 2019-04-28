@@ -73,16 +73,13 @@ const network = {
                         let reqHeaders = JSON.parse(data.result.responseHeaders)
                         // let r = decodeURIComponent(data.result.responseBody);
                         let r = data.result.responseBody
-                        // r = Object.assign(r, {
-                        //     headers: reqHeaders
-                        // })
-                        r.headers = reqHeaders
                         if (r.indexOf(boundary) === 0) {
                             r = r.split(boundary)[1]
                         }
                         // console.info('response', r)
                         try {
-                            const responseJson = JSON.parse(r);
+                            let responseJson = JSON.parse(r);
+                            responseJson.headers = reqHeaders
                             ResolveWrapper(resolve, responseJson);
                         } catch (error) {
                             ResolveWrapper(resolve, r);
