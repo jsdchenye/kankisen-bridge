@@ -73,7 +73,7 @@ const network = {
                         console.log(data.result.responseBody)
                         console.log(data.result.responseHeaders)
                         console.log('headers')
-
+                        console.log(JSON.parse(data.result.responseHeaders))
                         // let r = decodeURIComponent(data.result.responseBody);
                         let r = data.result.responseBody
                         if (r.indexOf(boundary) === 0) {
