@@ -70,9 +70,9 @@ const network = {
                 window[GLOBAL_NAME].kernel.invoke('sendRequest', params, function (data) {
                     // console.log(data);
                     if (data.status && data.result && parseInt(data.result.statusCode, 10) === 200) {
-                        console.log('network ----------------')
-                        // console.log(data.result.responseBody)
-                        console.log('network ----------------')
+                        console.log(data.result.responseBody)
+                        console.log(data.result.responseHeaders)
+                        console.log('headers')
 
                         // let r = decodeURIComponent(data.result.responseBody);
                         let r = data.result.responseBody
