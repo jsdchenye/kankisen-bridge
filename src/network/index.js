@@ -1,4 +1,5 @@
 import ready from '../ready';
+import monitor from './monitor'; // 添加监控
 import { isIOS, mergeUrl, ResolveWrapper, RejectWrapper } from '../utils';
 import { GLOBAL_NAME, boundary } from '../../config';
 
@@ -69,6 +70,7 @@ const network = {
             return new Promise(function(resolve, reject) {
                 window[GLOBAL_NAME].kernel.invoke('sendRequest', params, function (data) {
                     // console.log(data);
+                    monitor(params, data);
                     if (data.status && data.result && parseInt(data.result.statusCode, 10) === 200) {
                         let reqHeaders = JSON.parse(data.result.responseHeaders)
                         // let r = decodeURIComponent(data.result.responseBody);
