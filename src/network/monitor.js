@@ -34,7 +34,8 @@ function ajax(url, params) {
   const request = new XMLHttpRequest();
   request.open('POST', url, true);
   request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  request.send(JSON.stringify({ business_type: 1, warning_msg: params }));
+  // request.send(({ business_type: 1, warning_msg: JSON.stringify(params) }));
+  request.send(`business_type=1&warning_msg=${JSON.stringify(params)}`)
 }
 
 /**
@@ -302,7 +303,8 @@ function monitor(params, data) {
     if (errObj.errmsg) {
       // console.error('api 接口', params.url, params, data);
       // ajax('http://10.188.60.222:8095/crm/common/uploadwarning', errObj);
-      ajax('http://10.59.57.146:8800/crm/common/uploadwarning', errObj);
+      // ajax('http://10.59.57.146:8800/crm/common/uploadwarning', errObj);
+      ajax('http://shopic.sf-express.com/crm/common/uploadwarning', errObj);
     }
   } catch (error) {
     // console.error(error, '这是一条错误信息');
