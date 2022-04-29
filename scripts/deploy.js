@@ -1,21 +1,9 @@
 const deploy = require('eden-remote-deploy');
 
 const deployCfg = {
-  zhangxu: {
-    receiver: 'http://10.188.40.14:8230/receiver.php',
-    root: '/home/zhangxu/odp_wms/',
-  },
-  zhangyi: {
-    receiver: 'http://10.188.40.14:8029/receiver.php',
-    root: '/home/zhangyi/odp_wms/',
-  },
-  yanbin: {
-    receiver: 'http://10.188.40.14:8765/receiver.php',
-    root: '/home/douyanbin/odp_wms/',
-  },
   qa: {
-    receiver: 'http://10.188.60.73:8333/receiver.php',
-    root: '/home/sftcwl/odp_wms/',
+    receiver: 'http://xxx/receiver.php',
+    root: '/',
   },
 };
 
